@@ -9,6 +9,20 @@ app.use(formidable());
 
 require("dotenv").config();
 
+app.get("/characters/:id", (req, res) => {
+  console.log("now in /character/:id");
+  console.log(req.params);
+  let idCharacter = req.params.id;
+  axios
+    .get(
+      `https://lereacteur-marvel-api.herokuapp.com/comics/${idCharacter}?apiKey=TXgFLbDufrCAd1Fb`
+    )
+    .then((response) => {
+      let results = response.data;
+      res.json(results);
+    });
+});
+
 app.get("/characters", async (req, res) => {
   console.log("route characters started");
   if (!req.query.page) {

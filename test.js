@@ -29,8 +29,11 @@ const axios = require("axios");
 
 axios
   .get(
-    "https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=TXgFLbDufrCAd1Fb"
+    `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=TXgFLbDufrCAd1Fb`
   )
   .then((response) => {
+    // console.log(response.data);
     console.log(response.data);
   });
+
+console.log("test");
