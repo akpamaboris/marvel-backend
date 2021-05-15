@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const formidable = require("express-formidable");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -25,7 +26,7 @@ const register = require("./routes/register");
 app.use(register);
 //--__--__--__
 
-mongoose.connect("mongodb://localhost/Marvel", {
+mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

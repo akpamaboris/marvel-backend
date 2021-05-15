@@ -14,7 +14,10 @@ router.post("/login", async (req, res) => {
   if (
     findUser[0].hash === SHA256(password + findUser[0].salt).toString(encBase64)
   ) {
-    res.json({ message: "user have right password, user connected" });
+    res.json({
+      message: "user have right password, user connected",
+      token: findUser[0].token,
+    });
   } else {
     res.json({ message: "wrong password" });
   }
